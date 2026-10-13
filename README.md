@@ -1,66 +1,111 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Tugas Rutin 11 — E-Commerce DB + Secure Auth
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Project Laravel untuk memenuhi Tugas Rutin 11 dengan implementasi database e-commerce, authentication, multi-role authorization, middleware, policy, dan pengelolaan produk.
 
-## About Laravel
+## Teknologi
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Laravel 10
+- PHP 8.2
+- MySQL
+- Laravel Breeze
+- Blade
+- Tailwind CSS
+- Filament Admin Panel + Shield (Bonus)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Fitur
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- 7 tabel database e-commerce (users, categories, products, orders, order_items, tags, product_tag)
+- Migration dan Foreign Key
+- Factory & Seeder (60+ produk realistis)
+- Eloquent Model & Relationship
+- Eloquent Scope (`scopePublished`, `scopeExpensive`)
+- Login, Register, Logout (Laravel Breeze)
+- Multi-role: Admin, Editor, User
+- Custom Middleware (EnsureAdmin, EnsureRole)
+- PostPolicy untuk otorisasi
+- Proteksi Route (auth, admin, role:admin,editor)
+- Filament Admin Panel (Bonus)
+- Eager Loading untuk hindari N+1 query (Bonus)
 
-## Learning Laravel
+## Akun Testing
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+| Role   | Email              | Password |
+| ------ | ------------------ | -------- |
+| Admin  | admin@test.com     | password |
+| Editor | editor@test.com    | password |
+| User   | user@test.com      | password |
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Hak akses:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Admin:** lihat, edit, hapus semua produk & post
+- **Editor:** lihat dan edit semua post
+- **User:** hanya lihat, edit & hapus post miliknya sendiri
 
-## Laravel Sponsors
+## Dokumentasi Tinker
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Hasil 5 query Tinker untuk mendemonstrasikan relasi & scope:
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
 
-## Contributing
+## Menjalankan Project
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+composer install
+npm install
+copy .env.example .env
+php artisan key:generate
+Buat database ecommerce_db di phpMyAdmin, lalu atur .env:
 
-## Code of Conduct
+text
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=ecommerce_db
+DB_USERNAME=root
+DB_PASSWORD=
+Lanjut jalankan:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+bash
+php artisan migrate:fresh --seed
+npm run build
+php artisan serve
+Buka browser:
 
-## Security Vulnerabilities
+text
+http://127.0.0.1:8000
+Struktur Folder
+text
+app/
+├── Http/
+│   ├── Controllers/PostController.php
+│   └── Middleware/
+│       ├── EnsureAdmin.php
+│       └── EnsureRole.php
+├── Models/
+│   ├── Category.php
+│   ├── Order.php
+│   ├── OrderItem.php
+│   ├── Post.php
+│   ├── Product.php
+│   ├── Tag.php
+│   └── User.php
+└── Policies/PostPolicy.php
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+database/
+├── factories/
+├── migrations/
+└── seeders/DatabaseSeeder.php
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+resources/views/
+├── layouts/app.blade.php
+├── components/
+│   ├── alert.blade.php
+│   └── card.blade.php
+└── posts/
+    ├── index.blade.php
+    ├── create.blade.php
+    ├── edit.blade.php
+    └── show.blade.php
+Repository
+text
+TugasWeb-P11-EcommerceAuth
