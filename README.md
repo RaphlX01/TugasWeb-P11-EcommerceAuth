@@ -43,7 +43,21 @@ Hak akses:
 
 ## Dokumentasi Tinker
 
-Hasil 5 query Tinker untuk mendemonstrasikan relasi & scope:
+<img width="1920" height="1051" alt="Cmder 10_11_2026 8_00_29 AM" src="https://github.com/user-attachments/assets/be5bca96-3f60-4407-b37f-e543148c317b" />
+
+<img width="1920" height="1051" alt="Cmder 10_11_2026 8_00_35 AM" src="https://github.com/user-attachments/assets/8a3179d6-ff8f-4412-8b67-8783233f87e0" />
+
+<img width="1920" height="1051" alt="Cmder 10_11_2026 8_00_45 AM" src="https://github.com/user-attachments/assets/3750f8b9-cbc6-44c8-82db-d6967019af06" />
+
+<img width="1920" height="1051" alt="Cmder 10_11_2026 8_00_09 AM" src="https://github.com/user-attachments/assets/729126ed-3494-4643-b7a9-c6ca9a722bd8" />
+
+<img width="1920" height="1051" alt="Cmder 10_11_2026 8_00_02 AM" src="https://github.com/user-attachments/assets/bb316b07-9110-47e6-9e20-83f02c0dd2ee" />
+
+<img width="1920" height="1051" alt="Cmder 10_11_2026 7_59_54 AM" src="https://github.com/user-attachments/assets/8b450c95-2370-4d9b-849c-6cf6b8555c1a" />
+
+<img width="1920" height="1051" alt="Cmder 10_11_2026 7_59_47 AM" src="https://github.com/user-attachments/assets/c498744a-c70a-4642-be2e-35b85c2231c6" />
+
+<img width="1920" height="1051" alt="Cmder 10_11_2026 7_58_59 AM" src="https://github.com/user-attachments/assets/e8597c7f-1675-495a-b5ae-38d3cac67cc4" />
 
 
 
